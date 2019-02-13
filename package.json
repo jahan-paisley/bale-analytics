@@ -11,6 +11,7 @@
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
     "@babel/preset-typescript": "^7.1.0",
+    "tokenizr": "^1.5.2",
     "typescript": "^3.3.3"
   }
 }
