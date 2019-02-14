@@ -1,6 +1,6 @@
 "use strict";
 // import {Message} from "./message"
-exports.__esModule = true;
+//exports.__esModule = true;
 var Message = /** @class */ (function () {
     function Message(sender, time, content, likes, date, id) {
         if (content === void 0) { content = 'فایل'; }
@@ -14,7 +14,7 @@ var Message = /** @class */ (function () {
     }
     return Message;
 }());
-exports.Message = Message;
+//exports.Message = Message;
 function collectMsgObjects() {
     var msgs = document.getElementsByClassName("message");
     var msgObjs = [], j = 0;
@@ -59,7 +59,7 @@ function prepare_elastic_ingest() {
     var elastic_input = '';
     for (var _i = 0, msgObjs_1 = msgObjs; _i < msgObjs_1.length; _i++) {
         var msgObj = msgObjs_1[_i];
-        elastic_input += "{ \"index\" : { \"_index\" : \"bale\", \"_type\" : \"_doc\", \"_id\" : \"" + msgObj.id + "\" } }\n" + JSON.stringify(msgObj) + "\n";
+        elastic_input += "{ \"index\" : { \"_index\" : \"bale\", \"_type\": \"bale\", \"_id\": "+msgObj.id+" } }\n" + JSON.stringify(msgObj) + "\n";
     }
     return elastic_input;
 }
