@@ -1,3 +1,23 @@
+###create index
+
+PUT bale
+{
+    "settings" : {
+        "number_of_shards" : 1
+    },
+    "mappings" : {
+        "_doc" : {
+            "properties" : {
+                "datetime" : { "type" : "date" },
+                "sender":{"type": "text"},
+                "content":{"type": "text", "fielddata": true},
+                "likes":{"type": "integer"},
+                "id":{"type": "text"}
+            }
+        }
+    }
+}
+
 ##queries
 GET /bale/_search
 {

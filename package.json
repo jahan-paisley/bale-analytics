@@ -2,16 +2,40 @@
   "name": "bale-analytics",
   "version": "1.0.0",
   "scripts": {
-    "build": "babel src -d lib",
-    "check-types": "tsc src/bale.ts"
+    "check-types": "tsc src/bale.ts",
+    "start": "NODE_ENV=development webpack-dev-server -d",
+    "build": "NODE_ENV=production webpack -p",
+    "dev": "webpack-dev-server --env.mode development --watch",
+    "prod": "webpack --env.mode production",
+    "debug": "node --inspect-brk ./node_modules/webpack/bin/webpack.js",
+    "prod:debug": "npm run debug -- --env.mode production",
+    "dev:debug": "npm run debug -- --env.mode development",
+    "lint": "eslint . --ext .ts,.tsx"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+    "@babel/preset-env": "^7.3.1",
     "@babel/preset-typescript": "^7.1.0",
+    "babel-loader": "^8.0.5",
+    "babel-polyfill": "^6.26.0",
     "tokenizr": "^1.5.2",
-    "typescript": "^3.3.3"
+    "ts-loader": "^5.3.3",
+    "ts-md5": "^1.2.4",
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-typescript": "^7.1.0",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-merge": "^4.2.1"
   }
 }
