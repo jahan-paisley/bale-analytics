@@ -9,7 +9,7 @@
         "_doc" : {
             "properties" : {
                 "datetime" : { "type" : "date" },
-                "sender":{"type": "text"},
+                "sender":{"type": "text","fielddata": true},
                 "content":{"type": "text", "fielddata": true},
                 "likes":{"type": "integer"},
                 "id":{"type": "text"}
