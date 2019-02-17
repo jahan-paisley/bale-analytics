@@ -1,6 +1,6 @@
-###create index
+### Create index
 
-PUT bale
+`PUT bale
 {
     "settings" : {
         "number_of_shards" : 1
@@ -16,10 +16,11 @@ PUT bale
             }
         }
     }
-}
+}`
 
-##queries
-GET /bale/_search
+## Queries
+
+`GET /bale/_search
 {
   "query": {
     "wildcard": {
@@ -35,14 +36,15 @@ GET /bale/_search
       }
     }
   }
-}
+}`
 
-##ingest command
-`➜  ~ curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/_bulk?pretty' --data-binary @/Users/jani/Projects/bale-analytics/export.json`
+## Ingest command
 
-##change content fielddata to true
+`curl -H 'Content-Type: application/x-ndjson' -XPOST 'localhost:9200/_bulk?pretty' --data-binary @/Users/jani/Projects/bale-analytics/export.json`
 
-PUT bale/_mapping/_doc
+## Change content fielddata to true
+
+`PUT bale/_mapping/_doc
 {
   "properties": {
     "content": { 
@@ -50,4 +52,21 @@ PUT bale/_mapping/_doc
       "fielddata": true
     }
   }
-}
+}`
+
+## Number of unique senders
+
+`GET bale/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "size": 0,
+  "aggs": {
+      "distinct_senders" : {
+            "cardinality" : {
+              "field" : "sender"
+            }
+        }
+  }
+}`
