@@ -5370,7 +5370,7 @@ function parseDate(date, time) {
     });
     for (var i = 0; i < months.length; i++)
         if (date.indexOf(months[i]) != -1) {
-            var gregorianDate = toGregorian(1397, (i + 1), Number(date.replace(' ' + months[i], '')));
-            return new Date(gregorianDate.gy, gregorianDate.gm, gregorianDate.gd, timeArr[0], timeArr[1]);
+            var gregorianDate = toGregorian(1397, i+1 , Number(date.replace(' ' + months[i], '')));
+            return new Date(gregorianDate.gy, gregorianDate.gm-1, gregorianDate.gd, timeArr[0], timeArr[1]);
         }
 }
