@@ -5300,6 +5300,7 @@ var Message = /** @class */ (function () {
         if (likes != 0)
             this.likes = Number(parseArabic(likes));
         this.datetime = parseDate(parseArabic(date), parseArabic(time));
+        this.jdate= date;
         this.id = id;
     }
     return Message;
