@@ -9,6 +9,7 @@
         "_doc" : {
             "properties" : {
                 "datetime" : { "type" : "date" },
+                "jdate" : { "type" : "text" },
                 "sender":{"type": "keyword"},
                 "content":{"type": "text", "fielddata": true},
                 "likes":{"type": "integer"},
